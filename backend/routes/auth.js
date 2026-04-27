@@ -1,6 +1,7 @@
 import { Router } from "express";
 import db from '../db.js'
 import { hashPassword, verifyPassword } from "../crypto.js";
+import jwt from 'jsonwebtoken'
 
 const router =  Router()
 
@@ -49,7 +50,9 @@ router.post('/login', async (req, res) => {
         return res.status(401).json( { error: 'Invalid email or password!' } )
     }
 
-    res.json( {message: 'Logged in!', userId: user.id })
+    const token = jwt.sign( { userId: user.id }, process.env.JWT_SECRET, {expiresIn: '6h'})
+
+    res.json( {token} )
 })
 
 export default router

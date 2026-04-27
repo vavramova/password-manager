@@ -1,6 +1,9 @@
 import express from 'express'
 import './db.js'
 import authRoutes from './routes/auth.js'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 //creaed the server
 const app = express()
