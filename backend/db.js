@@ -25,6 +25,7 @@ db.exec(`
         title TEXT NOT NULL,
         encrypted_data TEXT NOT NULL,
         iv TEXT NOT NULL,
+        auth_tag TEXT NOT NULL,
         FOREIGN KEY (user_id) REFERENCES users(id)
     )
 `)
