@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Manager</title>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    
+    <!--LOGIN-->
+    <div id="login-page">
+      <div class="card">
+        <h1>Password Manager</h1>
+
+        <p class="subtitle">Your passwords here, safe</p>
+
+        <input id="email" type="email" placeholder="Email" />
+        <input id="password" type="password" placeholder="Password" />
+
+        <button id="login-btn">Login</button>
+        <button id="register-btn" class="secondary">Create Account</button>
+
+        <p id="auth-error" class="error"></p>
+      </div>
+
+    </div>
+
+    <!--VAULT PAGE-->
+    <div id="vault-page" class="hidden">
+      <div class="header">
+        <h2>My Vault</h2>
+        <button id="logout-btn" class="secondary-small">Logout</button>
+      </div>
+
+      <div class="card">
+        <h3>Add New Entry</h3>
+        <input id="entry-title" type="text" placeholder="Title"/>
+        <input id="entry-data" type="text" placeholder="Password to save"/>
+        <button id="save-btn">Save Entry</button>
+      </div>
+
+      <div id="entries-list"></div>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+
+
+  </body>
+</html>
