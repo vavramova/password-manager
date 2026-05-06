@@ -3,12 +3,16 @@ import './db.js'
 import authRoutes from './routes/auth.js'
 import dotenv from 'dotenv'
 import vaultRoutes from './routes/vault.js'
+import cors from 'cors'
 
 dotenv.config()
+
 
 //creaed the server
 const app = express()
 app.use(express.json())
+
+app.use(cors({ origin: 'http://localhost:5173' }))
 
 app.use('/api/auth', authRoutes)
 app.use('/api/vault', vaultRoutes)
