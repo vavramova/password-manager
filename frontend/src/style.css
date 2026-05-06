@@ -82,6 +82,12 @@ button.small {
   min-height: 1rem;
 }
 
+.success {
+  color: #22c55e; 
+  font-size: 0.85rem; 
+  min-height: 1rem; 
+}
+
 
 .header{
   display: flex;

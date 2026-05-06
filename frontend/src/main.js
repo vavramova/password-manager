@@ -20,7 +20,12 @@ document.getElementById('register-btn').addEventListener('click', async() => {
 
   const data = await res.json()
 
-  if(!res.ok) return authError.textContent = data.error
+  if(!res.ok) {
+    authError.className = 'error'
+    return authError.textContent = data.error
+  }
+
+  authError.className = 'success'
   authError.textContent = 'Account created! You can now log in!'
 })
 
@@ -37,8 +42,12 @@ document.getElementById('login-btn').addEventListener('click', async() => {
 
   const data = await res.json()
 
-  if(!res.ok) return authError.textContent = data.error
+  if (!res.ok) {
+  authError.className = 'error'
+  return authError.textContent = data.error
+  }
 
+  authError.textContent = ''
   token = data.token
   showVault()
 })
