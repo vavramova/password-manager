@@ -113,16 +113,22 @@ document.getElementById('entry-data').addEventListener('input', (e) => {
   const result = zxcvbn(e.target.value)
   const labels = ['Very weak', 'Weak', 'Fair', 'Strong', 'Very strong']
   const colors = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#6366f1']
+  const widths = ['20%', '40%', '60%', '80%', '100%']
 
-  let indicator = document.getElementById('strength')
-
-  if(!indicator){
-    indicator = document.createElement('p')
-    indicator.id = 'strength'
-    indicator.style.fontSize = '0.85rem'
-    e.target.after(indicator)
+  if (!document.getElementById('strength-bar-container')) {
+    e.target.insertAdjacentHTML('afterend', `
+      <div class="strength-bar-container" id="strength-bar-container">
+        <div class="strength-bar" id="strength-bar"></div>
+      </div>
+      <p id="strength"></p>
+    `)
   }
 
-  indicator.textContent = `Strength: ${labels[result.score]}`
-  indicator.style.color = colors[result.score]
+  const bar =  document.getElementById('strength-bar')
+  const label = document.getElementById('strength')
+
+  bar.style.width = e.target.value ? widths[result.score] : '0%'
+  bar.style.background = colors[result.score]
+  label.textContent = e.target.value ?  `Strength: ${labels[result.score]}` : ''
+  label.style.color = colors[result.score] 
 })
