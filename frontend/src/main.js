@@ -48,6 +48,17 @@ document.getElementById('logout-btn').addEventListener('click', () => {
   token = null
   vaultPage.classList.add('hidden')
   loginPage.classList.remove('hidden')
+
+  document.getElementById('email').value = ''
+  document.getElementById('password').value = ''
+  document.getElementById('entry-title').value = ''
+  document.getElementById('entry-data').value = ''
+
+  const bar = document.getElementById('strength-bar')
+  const label = document.getElementById('strength')
+  
+  if(bar) bar.style.width = '0%'
+  if (label) label.textContent = ''
 })
 
 
